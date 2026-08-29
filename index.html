@@ -100,7 +100,7 @@
   .reveal.d1{transition-delay:.08s} .reveal.d2{transition-delay:.16s} .reveal.d3{transition-delay:.24s} .reveal.d4{transition-delay:.32s}
 
   /* ---------- hero ---------- */
-  #hero{padding:160px 0 80px;min-height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+  #hero{padding:150px 0 96px;min-height:92svh;display:flex;align-items:center;position:relative;overflow:hidden}
   #hero .horizon{position:absolute;left:0;right:0;bottom:-30%;height:80%;pointer-events:none;z-index:1;
     background:radial-gradient(70% 100% at 50% 100%,rgba(201,169,106,.10),transparent 60%)}
   #hero .lines{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.35;
@@ -136,9 +136,6 @@
   .hero-socials a:hover{color:var(--accent);border-color:var(--rule-2)}
   .hero-socials svg{width:14px;height:14px}
 
-  .hero-bottom{margin-top:72px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;flex-wrap:wrap;gap:14px;opacity:0;animation:fadeUp 1s var(--ease-out) .9s forwards}
-  .hero-bottom .stats{display:flex;gap:32px;flex-wrap:wrap}
-  .hero-bottom .stats b{color:var(--ink);font-weight:500;margin-right:6px;font-size:14px;font-family:"Inter",sans-serif;letter-spacing:-.02em}
 
   @media (max-width:820px){
     #hero{padding:120px 0 60px}
@@ -146,18 +143,7 @@
     .hero-sub{grid-template-columns:1fr;gap:26px;align-items:start}
     .hero-actions{align-items:flex-start}
     .hero-actions .row{justify-content:flex-start}
-    .hero-bottom{flex-direction:column;align-items:flex-start}
-    .hero-bottom .stats{gap:20px}
   }
-
-  /* ---------- marquee ---------- */
-  .marquee{position:relative;padding:22px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;background:var(--bg-2);z-index:3}
-  .marquee-track{display:flex;gap:44px;animation:marq 44s linear infinite;white-space:nowrap;width:max-content;align-items:center}
-  .marquee:hover .marquee-track{animation-play-state:paused}
-  .marquee span{font-size:14px;color:var(--muted);font-weight:400;letter-spacing:.02em}
-  .marquee span.hi{color:var(--accent)}
-  .marquee .glyph{color:var(--muted-2);font-size:8px}
-  @keyframes marq{to{transform:translateX(-50%)}}
 
   /* ---------- about ---------- */
   .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;margin-top:52px;align-items:start}
@@ -340,32 +326,8 @@
       </div>
     </div>
 
-    <div class="hero-bottom">
-      <div class="stats">
-        <span><b>12+</b>Projects</span>
-        <span><b>4y</b>Applied ML</span>
-        <span><b>1</b>IEEE Paper</span>
-        <span><b>08</b>Domains</span>
-      </div>
-      <span>[ Scroll to explore ]</span>
-    </div>
   </div>
 </section>
-
-<!-- marquee -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marq">
-    <span>Machine Learning</span><span class="glyph">◆</span>
-    <span>Deep Learning</span><span class="glyph">◆</span>
-    <span class="hi">LLM Systems</span><span class="glyph">◆</span>
-    <span>Computer Vision</span><span class="glyph">◆</span>
-    <span>Data Engineering</span><span class="glyph">◆</span>
-    <span class="hi">Time Series</span><span class="glyph">◆</span>
-    <span>MLOps</span><span class="glyph">◆</span>
-    <span>Generative AI</span><span class="glyph">◆</span>
-    <span class="hi">Research</span><span class="glyph">◆</span>
-  </div>
-</div>
 
 <!-- about -->
 <section id="about">
@@ -494,7 +456,7 @@ const PROJECTS = [
   {cat:"Retail Intelligence", yr:"2026", title:"SME Retail Intelligence", subtitle:"Forecasting and Inventory Analytics", desc:"A CSV-first platform for small retailers to track inventory, forecast per-SKU demand, surface stock risks, and ask business questions through secure natural-language analytics.", metric:"Forecasts / insights / secure chat", tags:["FastAPI","Go","Next.js","Angular","PostgreSQL","Kubernetes"], link:"https://github.com/SarmadAli8824/Sme-Retail-Intelligence", linkLabel:"View Repo", img:"assets/projects/retail-intelligence.webp"},
   {cat:"AI Commerce", yr:"2026", title:"AI Product Descriptions", subtitle:"Embedded Shopify Application", desc:"An embedded commerce app that turns a product title and image into a polished, SEO-aware description, with tone and length controls, generation history, product selection, and safe server-side validation.", metric:"Vision generation and SEO scoring", tags:["TypeScript","React","Remix","Prisma","OpenAI","Shopify"], link:"https://github.com/SarmadAli8824/shopify-ai-descriptions-comp", linkLabel:"View Repo", img:"assets/projects/shopify-ai-descriptions.webp"},
   {cat:"Deep Learning / Security", yr:"2026", title:"PhishTransformer", subtitle:"Phishing URL Detection", desc:"A hybrid CNN and Transformer with character-level encoding, trained on 100K URLs from PhishTank, UNB CIC, and Tranco to catch malicious links before they land.", metric:"99.66% accuracy", tags:["CNN","Transformer","Deep Learning","Python"], link:"https://github.com/SarmadAli8824/Phishing-URL-Detection", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"},
-  {cat:"Generative AI / Research", yr:"2026", title:"WGAN-GP Pneumonia", subtitle:"Detection with Synthesised X-rays", desc:"A two-stage framework, a Wasserstein GAN with gradient penalty synthesises chest X-rays to fix class imbalance, then a VGG16 and ResNet50 ensemble classifies pneumonia. Published as a full IEEE conference paper.", metric:"IEEE Conference Paper", tags:["WGAN-GP","TensorFlow","VGG16","ResNet50"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1631563019676-daa00fecda43?auto=format&fit=crop&w=1400&q=80"},
+  {cat:"Generative AI / Research", yr:"2026", title:"WGAN-GP Pneumonia", subtitle:"Detection with Synthesised X-rays", desc:"A two-stage framework, a Wasserstein GAN with gradient penalty synthesises chest X-rays to fix class imbalance, then a VGG16 and ResNet50 ensemble classifies pneumonia. Published as a full IEEE conference paper.", metric:"IEEE Conference Paper", tags:["WGAN-GP","TensorFlow","VGG16","ResNet50"], link:PROFILE, linkLabel:"GitHub", img:"assets/projects/wgan-pneumonia.webp"},
   {cat:"Performance / HPC", yr:"2024", title:"Optimised ML Pipeline", subtitle:"Serial, Parallel, GPU", desc:"The same ML pipeline built three ways with multiprocessing and CUDA acceleration, then benchmarked for accuracy against wall-clock cost.", metric:"70%+ runtime reduction", tags:["PyTorch","CUDA","Multiprocessing","Benchmarking"], link:"https://github.com/SarmadAli8824/PDC-ML-Pipeline", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Forecasting / Time Series", yr:"2024", title:"Electric Load Forecast", subtitle:"10 US Cities", desc:"Next-day electricity demand forecasting for 10 US cities using Random Forest, XGBoost, and LSTM, with anomaly detection and unsupervised clustering feeding a stacked ensemble.", metric:"Beats naive baselines", tags:["XGBoost","LSTM","Random Forest","DBSCAN"], link:"https://github.com/SarmadAli8824/Electric-Load-Forecasting", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Security / Benchmark", yr:"2024", title:"IoT Intrusion Detection", subtitle:"CICIoT2023 Benchmark", desc:"A reproducible evaluation comparing four classifiers on CICIoT2023 across 33 cyberattack types, with rigorous per-class precision, recall, and F1 so rare attacks are not masked.", metric:"33 attack classes", tags:["Scikit-learn","Random Forest","SVC","KNN"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"},
@@ -503,7 +465,7 @@ const PROJECTS = [
   {cat:"Database Engineering", yr:"2026", title:"Exam Registration SQL", subtitle:"Transactions and Audit Trail", desc:"A PostgreSQL exam-registration system with a constrained four-table relational schema, nine transaction types, cancellation auditing, grading logic, and a documented entity relationship model.", metric:"4 tables / 9 transaction types", tags:["PostgreSQL","SQL","Transactions","Audit Log","ERD"], link:"https://github.com/SarmadAli8824/Exam-Registration-SQL", linkLabel:"View Repo", img:"assets/projects/exam-registration.webp"},
   {cat:"Logistics Analytics", yr:"2026", title:"Shipment Operations Analysis", subtitle:"Routes, Drivers, Delays", desc:"A practical analysis of trucking and shipment data that identifies high-volume routes, driver utilisation, peak shipping periods, regional patterns, and delay risks through clear Python visualisations.", metric:"Actionable operational insights", tags:["Python","Pandas","Matplotlib","Seaborn","EDA"], link:"https://github.com/SarmadAli8824/Algorizms-Data-Science-Task", linkLabel:"View Repo", img:"assets/projects/logistics-analysis.webp"},
   {cat:"Statistics / R", yr:"2024", title:"USA Housing Forecast", subtitle:"ARIMA / SVM / RF", desc:"An advanced-statistics study forecasting US housing prices with ARIMA, SVM, and Random Forest in R, with full EDA, box plots, scatter matrices, and MSE comparison over 30 years of data.", metric:"3 models compared", tags:["R","ARIMA","SVM","Random Forest"], link:"https://github.com/SarmadAli8824/Adv-Stats-USA-Housing-Forecast", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"},
-  {cat:"Computer Vision", yr:"2024", title:"Signature Verification", subtitle:"Otsu and MLP Classifier", desc:"Automated genuine and forged signature verification using Otsu binarisation, denoising, and 9-dimensional geometric feature extraction feeding a Multilayer Perceptron.", metric:"Geometric features", tags:["TensorFlow","MLP","Image Processing"], link:"https://github.com/SarmadAli8824/Signature-Verification-System", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1583912267550-d92a56f5b7a2?auto=format&fit=crop&w=1400&q=80"},
+  {cat:"Computer Vision", yr:"2024", title:"Signature Verification", subtitle:"Otsu and MLP Classifier", desc:"Automated genuine and forged signature verification using Otsu binarisation, denoising, and 9-dimensional geometric feature extraction feeding a Multilayer Perceptron.", metric:"Geometric features", tags:["TensorFlow","MLP","Image Processing"], link:"https://github.com/SarmadAli8824/Signature-Verification-System", linkLabel:"View Repo", img:"assets/projects/signature-verification.webp"},
   {cat:"Full Stack ML", yr:"2024", title:"Image Moderation API", subtitle:"Dockerised REST Service", desc:"A production-ready FastAPI service scoring image URLs for safety through a REST endpoint, containerised with Docker Compose and documented in Swagger.", metric:"Docker and Swagger", tags:["FastAPI","Docker","MongoDB","Swagger"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Recommender Systems", yr:"2024", title:"Music Recommender", subtitle:"Content Based Filtering", desc:"A content-based filtering engine over Spotify data with an iterative user-feedback loop that continuously refines recommendations as tastes shift.", metric:"Feedback loop refinement", tags:["Spotify API","Content Filtering","Python"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1400&q=80"},
   {cat:"LLM Post Training", yr:"2026", title:"LLM Post Training Stack", subtitle:"SFT / Reward / DPO", desc:"A full post-training stack on an open-weight base model, supervised fine-tuning, a pairwise reward model, and DPO preference optimisation with LoRA adapters, evaluated on a contamination-checked held-out set.", metric:"SFT to RM to DPO", tags:["TRL","PEFT/LoRA","DPO","PyTorch"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80"},
@@ -523,9 +485,6 @@ addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>24);},{pa
 const burger=document.getElementById('burger'), navlinks=document.getElementById('navlinks');
 burger.addEventListener('click',()=>{const o=navlinks.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
 navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navlinks.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded',false);}));
-
-/* ---------------- marquee duplicate ---------------- */
-(function(){ const m=document.getElementById('marq'); m.innerHTML+=m.innerHTML; })();
 
 /* ---------------- arsenal ---------------- */
 const ag=document.getElementById('arsenalGrid');
