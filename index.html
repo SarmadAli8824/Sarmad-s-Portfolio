@@ -268,6 +268,39 @@
   footer{border-top:1px solid var(--rule);padding:30px 0;position:relative;z-index:3}
   .foot{display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;flex-wrap:wrap;gap:12px}
   .foot a:hover{color:var(--accent)}
+
+  /* A quieter layout, readable type, and a project browser that waits for the reader. */
+  :root{--muted:#A0A0A8;--muted-2:#85858F}
+  body{font-size:1rem}
+  section{scroll-margin-top:80px}
+  .grain,.vignette{display:none}
+  #hero{min-height:auto;padding:140px 0 88px}
+  #hero .lines{opacity:.15}
+  .hero-meta .pulse{animation:none}
+  .lead,.about-body p,.info p,.tl-item p{font-size:1rem}
+  .nav-links a,.nav-cta,.btn,.plink{font-size:.875rem;letter-spacing:.02em;text-transform:none}
+  .nav-links a .n{display:none}
+  .brand small,.eyebrow,.hero-meta,.focus .k,.cap .num,.cap .tags span,.cover .idx,.cover .cat,.cover .yr,.info .kicker,.info .ptags span,.tl-item .when{font-size:.75rem}
+  .focus p,.cap .sub{font-size:.875rem}
+  .reveal{opacity:1;transform:none}
+  .stage{height:auto;min-height:0}
+  .slide{position:relative;display:none;opacity:1;min-height:560px}
+  .slide.active{display:grid}
+  .info{padding:40px 34px;gap:16px;min-width:0}
+  .info .kicker,.info h3,.info p,.info .metric,.info .ptags,.info .plinks{transform:none;opacity:1;transition:none}
+  .info .plinks{flex-wrap:wrap}
+  .cover .cat{max-width:70%;text-align:right}
+  .project-flow{position:relative;z-index:3;list-style:none;padding:100px 36px;display:flex;flex-direction:column;justify-content:center;min-height:100%;counter-reset:step}
+  .project-flow li{counter-increment:step;border-bottom:1px solid var(--rule-2);padding:16px 0;font-size:1rem;color:var(--ink-2)}
+  .project-flow li::before{content:counter(step,decimal-leading-zero);font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.75rem;margin-right:18px}
+  .project-note{font-size:.875rem;color:var(--muted)}
+  .dots{justify-content:flex-start;gap:8px;margin-top:24px}
+  .dots button,.dots button.on{width:auto;height:auto;min-height:44px;border:1px solid var(--rule-2);border-radius:4px;background:transparent;color:var(--muted);padding:10px 13px;font:inherit;font-size:.875rem;text-align:left}
+  .dots button.on{color:var(--accent-2);border-color:var(--accent);background:rgba(201,169,106,.07)}
+  .dots button:hover{color:var(--ink);background:var(--panel)}
+  a:focus-visible,button:focus-visible,.stage:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  @media(max-width:900px){.slide{min-height:0;grid-template-rows:auto auto}.cover{min-height:260px}.project-flow{padding:64px 24px}.info{padding:30px 24px}.nav-links:not(.open){visibility:hidden}.nav-links.open{visibility:visible}}
+  @media(max-width:520px){.proj-head{gap:24px}.info h3{font-size:1.5rem}.contact-box .btn{max-width:100%;overflow-wrap:anywhere;letter-spacing:0}.project-flow li{font-size:.875rem}.hero-meta{letter-spacing:.08em}}
 </style>
 </head>
 <body>
@@ -311,7 +344,7 @@
 
     <div class="hero-sub">
       <p class="hero-tag">
-        A <b>Data Scientist and ML Engineer</b> working across the full lifecycle, from messy data and honest evaluation to LLM systems and deployment that holds up outside the notebook.
+        I’m Sarmad, a <b>Data Scientist and ML Engineer</b> in Islamabad. I build forecasting tools, machine learning applications, and AI workflows, from the first dataset to the API and interface.
       </p>
       <div class="hero-actions">
         <div class="row">
@@ -332,12 +365,12 @@
 <!-- about -->
 <section id="about">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">01 / The Persona</div></div>
-    <h2 class="title reveal">Turning messy data into decisions <span>people can actually use.</span></h2>
+    <div class="reveal"><div class="eyebrow">01 / About me</div></div>
+    <h2 class="title reveal">Data science, <span>with software around it.</span></h2>
     <div class="about-grid">
       <div class="about-body reveal d1">
-        <p>A Data Science graduate from FAST NUCES Islamabad, working across the full machine learning lifecycle, from preprocessing and training to honest evaluation, optimisation, and production deployment.</p>
-        <p>My work spans <b>medical imaging, generative models, forecasting, security, and LLM systems</b>. I care about the parts that make models actually useful, clean pipelines, per-class metrics that do not hide rare-class failures, and deployments that survive outside the notebook.</p>
+        <p>I graduated in Data Science from FAST NUCES Islamabad. My work combines Python and SQL with model development, APIs, and web applications.</p>
+        <p>Recent projects include <b>inventory forecasting for small shops, a Shopify description generator, and an n8n operations copilot</b>. I like working through the details: how data gets in, how a model is evaluated, and what happens when a request fails.</p>
         <p>Recently published an <b>IEEE conference paper</b> on generative augmentation for pneumonia detection, and I take on client work as a freelancer alongside engineering roles.</p>
       </div>
       <div class="focus-list reveal d2">
@@ -355,9 +388,9 @@
     <div class="arsenal-head">
       <div>
         <div class="reveal"><div class="eyebrow">02 / Capabilities</div></div>
-        <h2 class="title reveal">Technical Arsenal.</h2>
+        <h2 class="title reveal">Tools I work with.</h2>
       </div>
-      <p class="lead reveal d1">Eight domains I work in, with the tools I reach for most in each.</p>
+      <p class="lead reveal d1">The tools behind my analysis, models, and applications.</p>
     </div>
     <div class="arsenal-grid reveal d2" id="arsenalGrid"></div>
   </div>
@@ -369,7 +402,7 @@
     <div class="proj-head">
       <div>
         <div class="reveal"><div class="eyebrow">03 / Selected Work</div></div>
-        <h2 class="title reveal">Projects, one by one.</h2>
+        <h2 class="title reveal">Projects I’ve been working on.</h2>
       </div>
       <div class="proj-nav reveal d1">
         <button class="arrow" id="prev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -377,15 +410,15 @@
         <button class="arrow" id="next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
-    <div class="stage reveal d2" id="stage" aria-live="polite"></div>
-    <div class="dots" id="dots" role="tablist" aria-label="Project selector"></div>
+    <div class="stage reveal d2" id="stage" role="region" aria-label="Project details" tabindex="0"></div>
+    <div class="dots" id="dots" role="group" aria-label="Choose a project"></div>
   </div>
 </section>
 
 <!-- experience -->
 <section id="experience">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">04 / Trajectory</div></div>
+    <div class="reveal"><div class="eyebrow">04 / Experience</div></div>
     <h2 class="title reveal">Experience.</h2>
     <div class="tl reveal d1" id="tl"></div>
   </div>
@@ -394,7 +427,7 @@
 <!-- education -->
 <section id="education">
   <div class="wrap">
-    <div class="reveal"><div class="eyebrow">05 / Foundation</div></div>
+    <div class="reveal"><div class="eyebrow">05 / Education</div></div>
     <h2 class="title reveal">Education.</h2>
     <div class="edu reveal d1">
       <div class="badge">F</div>
@@ -413,8 +446,8 @@
   <div class="wrap">
     <div class="contact-box reveal">
       <div class="eyebrow">06 / Get in touch</div>
-      <h2>Let us build something <span class="light">worth deploying.</span></h2>
-      <p>Open to data science and ML engineering roles, freelance work, and research collaboration. The fastest way to reach me is email.</p>
+      <h2>Have a project <span class="light">in mind?</span></h2>
+      <p>I’m open to data science, ML engineering, and AI automation roles, as well as freelance projects. Send me an email with what you’re working on.</p>
       <div class="cta-row">
         <a href="mailto:sarmadali88245@gmail.com" class="btn primary">sarmadali88245@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         <a href="tel:+923355770382" class="btn">+92 335 577 0382</a>
@@ -450,8 +483,10 @@ const ARSENAL = [
 ];
 
 const PROFILE = "https://github.com/SarmadAli8824";
-/* Unsplash direct CDN image IDs, all high-resolution and stable. */
+/* Project descriptions reflect their current implementation stage. */
 const PROJECTS = [
+  {cat:"AI Automation / In progress", yr:"2026", title:"Voice-to-Action Copilot", subtitle:"n8n Operations Workflow", desc:"An n8n workflow that turns a text request into a structured action proposal, validates it, and waits for approval. The current MVP uses a mock executor with one-time approval tokens, expiry checks, and a PostgreSQL audit trail. Voice input and live integrations are planned.", metric:"Working MVP / simulated actions", tags:["n8n","Groq","PostgreSQL","JavaScript","Docker"], link:"mailto:sarmadali88245@gmail.com?subject=Voice-to-Action%20project%20walkthrough", linkLabel:"Ask about this project", diagram:["Request","Validated plan","Human approval","Mock action + audit"], note:"Private repository · In development"},
+  {cat:"NLP / Coursework", yr:"", title:"Legal Clause Similarity", subtitle:"Siamese BiLSTM Models", desc:"A notebook study comparing two shared-encoder models for matching legal clauses. It builds same-category and different-category pairs, trains BiLSTM and pooled sequence encoders, and compares classification reports, ROC-AUC, and example predictions.", metric:"Two encoder variants compared", tags:["Python","TensorFlow","Keras","BiLSTM","NLP"], link:"https://github.com/SarmadAli8824/Deep-learning-", linkLabel:"View notebook", diagram:["Clause pairs","Shared encoder","Similarity score","Model comparison"]},
   {cat:"Medical AI / FYP", yr:"2025 / 2026", title:"SkinVisionAI", subtitle:"Skin Disease Diagnosis", desc:"A ConvNeXt-V2 model classifying 11 skin diseases at sub-second GPU inference, with an ROI detection stage and RAG-grounded LLM report generation across three providers with automatic fallback.", metric:"11 classes / 23 unit tests", tags:["ConvNeXt-V2","PyTorch","FastAPI","RAG","PostgreSQL"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Retail Intelligence", yr:"2026", title:"SME Retail Intelligence", subtitle:"Forecasting and Inventory Analytics", desc:"A CSV-first platform for small retailers to track inventory, forecast per-SKU demand, surface stock risks, and ask business questions through secure natural-language analytics.", metric:"Forecasts / insights / secure chat", tags:["FastAPI","Go","Next.js","Angular","PostgreSQL","Kubernetes"], link:"https://github.com/SarmadAli8824/Sme-Retail-Intelligence", linkLabel:"View Repo", img:"assets/projects/retail-intelligence.webp"},
   {cat:"AI Commerce", yr:"2026", title:"AI Product Descriptions", subtitle:"Embedded Shopify Application", desc:"An embedded commerce app that turns a product title and image into a polished, SEO-aware description, with tone and length controls, generation history, product selection, and safe server-side validation.", metric:"Vision generation and SEO scoring", tags:["TypeScript","React","Remix","Prisma","OpenAI","Shopify"], link:"https://github.com/SarmadAli8824/shopify-ai-descriptions-comp", linkLabel:"View Repo", img:"assets/projects/shopify-ai-descriptions.webp"},
@@ -459,14 +494,14 @@ const PROJECTS = [
   {cat:"Generative AI / Research", yr:"2026", title:"WGAN-GP Pneumonia", subtitle:"Detection with Synthesised X-rays", desc:"A two-stage framework, a Wasserstein GAN with gradient penalty synthesises chest X-rays to fix class imbalance, then a VGG16 and ResNet50 ensemble classifies pneumonia. Published as a full IEEE conference paper.", metric:"IEEE Conference Paper", tags:["WGAN-GP","TensorFlow","VGG16","ResNet50"], link:PROFILE, linkLabel:"GitHub", img:"assets/projects/wgan-pneumonia.webp"},
   {cat:"Performance / HPC", yr:"2024", title:"Optimised ML Pipeline", subtitle:"Serial, Parallel, GPU", desc:"The same ML pipeline built three ways with multiprocessing and CUDA acceleration, then benchmarked for accuracy against wall-clock cost.", metric:"70%+ runtime reduction", tags:["PyTorch","CUDA","Multiprocessing","Benchmarking"], link:"https://github.com/SarmadAli8824/PDC-ML-Pipeline", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Forecasting / Time Series", yr:"2024", title:"Electric Load Forecast", subtitle:"10 US Cities", desc:"Next-day electricity demand forecasting for 10 US cities using Random Forest, XGBoost, and LSTM, with anomaly detection and unsupervised clustering feeding a stacked ensemble.", metric:"Beats naive baselines", tags:["XGBoost","LSTM","Random Forest","DBSCAN"], link:"https://github.com/SarmadAli8824/Electric-Load-Forecasting", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1400&q=80"},
-  {cat:"Security / Benchmark", yr:"2024", title:"IoT Intrusion Detection", subtitle:"CICIoT2023 Benchmark", desc:"A reproducible evaluation comparing four classifiers on CICIoT2023 across 33 cyberattack types, with rigorous per-class precision, recall, and F1 so rare attacks are not masked.", metric:"33 attack classes", tags:["Scikit-learn","Random Forest","SVC","KNN"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"},
+  {cat:"Security / Benchmark", yr:"2024", title:"IoT Intrusion Detection", subtitle:"CICIoT2023 Benchmark", desc:"A reproducible evaluation comparing four classifiers on CICIoT2023 across 33 cyberattack types, with rigorous per-class precision, recall, and F1 so rare attacks are not masked.", metric:"33 attack classes", tags:["Scikit-learn","Random Forest","SVC","KNN"], link:"https://github.com/SarmadAli8824/Iot-Intrusion-Detection", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Data Engineering", yr:"2024", title:"Walmart Warehouse", subtitle:"Star Schema and ETL", desc:"A star-schema MySQL data warehouse for Walmart sales with a custom Hybrid Join ETL pipeline in Python, plus 20 BI analytical queries covering sales trends and regional performance.", metric:"20 BI queries", tags:["MySQL","Star Schema","Python ETL","BI"], link:"https://github.com/SarmadAli8824/Walmart-DataWarehouse-ETL", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Business Intelligence", yr:"2026", title:"Mental Health Dashboard", subtitle:"Interactive Workforce Analytics", desc:"An interactive Tableau dashboard built from 10,000 records and 14 features, exploring risk distribution, workplace stress, working arrangements, and depression and anxiety patterns through practical filters.", metric:"10,000 records / 14 features", tags:["Tableau","Data Analysis","Dashboard","EDA"], link:"https://github.com/SarmadAli8824/Mental-Health-Tableau-Dashboard", linkLabel:"View Repo", img:"assets/projects/mental-health-dashboard.webp"},
   {cat:"Database Engineering", yr:"2026", title:"Exam Registration SQL", subtitle:"Transactions and Audit Trail", desc:"A PostgreSQL exam-registration system with a constrained four-table relational schema, nine transaction types, cancellation auditing, grading logic, and a documented entity relationship model.", metric:"4 tables / 9 transaction types", tags:["PostgreSQL","SQL","Transactions","Audit Log","ERD"], link:"https://github.com/SarmadAli8824/Exam-Registration-SQL", linkLabel:"View Repo", img:"assets/projects/exam-registration.webp"},
   {cat:"Logistics Analytics", yr:"2026", title:"Shipment Operations Analysis", subtitle:"Routes, Drivers, Delays", desc:"A practical analysis of trucking and shipment data that identifies high-volume routes, driver utilisation, peak shipping periods, regional patterns, and delay risks through clear Python visualisations.", metric:"Actionable operational insights", tags:["Python","Pandas","Matplotlib","Seaborn","EDA"], link:"https://github.com/SarmadAli8824/Algorizms-Data-Science-Task", linkLabel:"View Repo", img:"assets/projects/logistics-analysis.webp"},
   {cat:"Statistics / R", yr:"2024", title:"USA Housing Forecast", subtitle:"ARIMA / SVM / RF", desc:"An advanced-statistics study forecasting US housing prices with ARIMA, SVM, and Random Forest in R, with full EDA, box plots, scatter matrices, and MSE comparison over 30 years of data.", metric:"3 models compared", tags:["R","ARIMA","SVM","Random Forest"], link:"https://github.com/SarmadAli8824/Adv-Stats-USA-Housing-Forecast", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Computer Vision", yr:"2024", title:"Signature Verification", subtitle:"Otsu and MLP Classifier", desc:"Automated genuine and forged signature verification using Otsu binarisation, denoising, and 9-dimensional geometric feature extraction feeding a Multilayer Perceptron.", metric:"Geometric features", tags:["TensorFlow","MLP","Image Processing"], link:"https://github.com/SarmadAli8824/Signature-Verification-System", linkLabel:"View Repo", img:"assets/projects/signature-verification.webp"},
-  {cat:"Full Stack ML", yr:"2024", title:"Image Moderation API", subtitle:"Dockerised REST Service", desc:"A production-ready FastAPI service scoring image URLs for safety through a REST endpoint, containerised with Docker Compose and documented in Swagger.", metric:"Docker and Swagger", tags:["FastAPI","Docker","MongoDB","Swagger"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80"},
+  {cat:"Full Stack ML", yr:"2024", title:"Image Moderation API", subtitle:"Dockerised REST Service", desc:"A FastAPI service that checks image URLs for unsafe content, with MongoDB storage, Docker Compose setup, and Swagger API documentation.", metric:"Docker and Swagger", tags:["FastAPI","Docker","MongoDB","Swagger"], link:"https://github.com/SarmadAli8824/Image-Moderation-APi", linkLabel:"View Repo", img:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80"},
   {cat:"Recommender Systems", yr:"2024", title:"Music Recommender", subtitle:"Content Based Filtering", desc:"A content-based filtering engine over Spotify data with an iterative user-feedback loop that continuously refines recommendations as tastes shift.", metric:"Feedback loop refinement", tags:["Spotify API","Content Filtering","Python"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1400&q=80"},
   {cat:"LLM Post Training", yr:"2026", title:"LLM Post Training Stack", subtitle:"SFT / Reward / DPO", desc:"A full post-training stack on an open-weight base model, supervised fine-tuning, a pairwise reward model, and DPO preference optimisation with LoRA adapters, evaluated on a contamination-checked held-out set.", metric:"SFT to RM to DPO", tags:["TRL","PEFT/LoRA","DPO","PyTorch"], link:PROFILE, linkLabel:"GitHub", img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80"},
 ];
@@ -502,7 +537,7 @@ PROJECTS.forEach((pr,i)=>{
   const s=document.createElement('article');s.className='slide';s.dataset.i=i;
   s.innerHTML=`
     <div class="cover">
-      <img src="${pr.img}" alt="${pr.title}" loading="lazy" onerror="this.style.display='none'"/>
+      ${pr.img ? `<img src="${pr.img}" alt="${pr.title}" loading="lazy" onerror="this.style.display='none'"/>` : `<ol class="project-flow" aria-label="${pr.title} workflow">${pr.diagram.map(step=>`<li>${step}</li>`).join('')}</ol>`}
       <span class="idx">${String(i+1).padStart(2,'0')} / ${String(PROJECTS.length).padStart(2,'0')}</span>
       <span class="cat">${pr.cat}</span>
       <span class="yr">${pr.yr}</span>
@@ -512,28 +547,27 @@ PROJECTS.forEach((pr,i)=>{
       <span class="kicker">Project ${String(i+1).padStart(2,'0')} / ${pr.subtitle}</span>
       <h3>${pr.title}<small>${pr.subtitle}</small></h3>
       <p>${pr.desc}</p>
-      <span class="metric">${pr.metric}</span>
+      <span class="metric">${pr.metric}</span>${pr.note ? `<span class="project-note">${pr.note}</span>` : ''}
       <div class="ptags">${pr.tags.map(t=>`<span>${t}</span>`).join('')}</div>
       <div class="plinks"><a class="plink" href="${pr.link}" target="_blank" rel="noopener">${pr.linkLabel} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
     </div>`;
   stage.appendChild(s);
-  const d=document.createElement('button');d.setAttribute('role','tab');d.setAttribute('aria-label','Project '+(i+1));
+  const d=document.createElement('button');d.type='button';d.textContent=pr.title;d.setAttribute('aria-label','Show '+pr.title);d.setAttribute('aria-controls','stage');
   d.addEventListener('click',()=>go(i));dotsEl.appendChild(d);
 });
 document.getElementById('total').textContent=String(PROJECTS.length).padStart(2,'0');
 const slides=[...stage.querySelectorAll('.slide')], dots=[...dotsEl.children];
-let idx=0, timer=null;
+let idx=0;
 function go(n){
   idx=(n+slides.length)%slides.length;
-  slides.forEach((s,k)=>s.classList.toggle('active',k===idx));
-  dots.forEach((d,k)=>d.classList.toggle('on',k===idx));
+  slides.forEach((s,k)=>{s.classList.toggle('active',k===idx);s.hidden=k!==idx;});
+  dots.forEach((d,k)=>{d.classList.toggle('on',k===idx);d.setAttribute('aria-pressed',String(k===idx));});
   document.getElementById('cur').textContent=String(idx+1).padStart(2,'0');
-  restart();
 }
-function restart(){ if(timer)clearInterval(timer); timer=setInterval(()=>go(idx+1),7500); }
+
 document.getElementById('next').addEventListener('click',()=>go(idx+1));
 document.getElementById('prev').addEventListener('click',()=>go(idx-1));
-addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1);});
+document.getElementById('projects').addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(idx+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(idx-1);}});
 let tx=0;
 stage.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
 stage.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)go(idx+(dx<0?1:-1));},{passive:true});
